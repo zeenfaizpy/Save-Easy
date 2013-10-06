@@ -3,9 +3,26 @@
 	<title>Save Easy</title>
 	<link rel="stylesheet" type="text/css" href="">
 	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
 </head>
 <body>
-	<input type="text" ng-model="name" />
-	<div>{{name}}</div>
+	<div class="form" ng-controller="FormCtrl">
+	<form>
+		Description: <input type="text" ng-model="description" /><br />
+		Date : <input type="text" ng-model="date" /><br />
+		Amount : <input type="text" ng-model="amount" /><br />
+		Category : <input type="text" ng-model="category" /><br />
+		<input type="submit" ng-click="submit()" />
+	</form>
+	<table border="1">
+		<thead><td>Description</td><td>Date</td><td>Amount</td><td>Category</td></thead>
+		<tbody>
+			<tr ng-repeat="task in tasks"><td>{{task.description}}</td><td>{{task.date}}</td><td>{{task.amount}}</td><td>{{task.category}}</td></tr>
+		</tbody>
+	</table>
+<!-- 	<div>
+		Data: {{tasks | json}}
+	</div> -->
+	</div>
 </body>
 </html>
