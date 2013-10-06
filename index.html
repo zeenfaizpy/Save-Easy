@@ -1,28 +1,33 @@
 <html ng-app>
 <head>
 	<title>Save Easy</title>
-	<link rel="stylesheet" type="text/css" href="">
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
 	<script type="text/javascript" src="angular.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 </head>
 <body>
-	<div class="form" ng-controller="FormCtrl">
-	<form>
-		Description: <input type="text" ng-model="description" /><br />
-		Date : <input type="text" ng-model="date" /><br />
-		Amount : <input type="text" ng-model="amount" /><br />
-		Category : <input type="text" ng-model="category" /><br />
-		<input type="submit" ng-click="submit()" />
-	</form>
-	<table border="1">
-		<thead><td>Description</td><td>Date</td><td>Amount</td><td>Category</td></thead>
-		<tbody>
-			<tr ng-repeat="task in tasks"><td>{{task.description}}</td><td>{{task.date}}</td><td>{{task.amount}}</td><td>{{task.category}}</td></tr>
-		</tbody>
-	</table>
-<!-- 	<div>
-		Data: {{tasks | json}}
-	</div> -->
+	<div style="padding-left:10px;">
+		<div class="row">
+			<div class="col-lg-4" ng-controller="FormCtrl">
+				<h3>Save Easy</h3>
+				<form role="form" ng-submit="submit()">
+					Description: <input class="form-control" type="text" required ng-model="description" placeholder="Description" /><br />
+					Date : <input class="form-control" type="text" ng-model="date" placeholder="Date" /><br />
+					Amount : <input class="form-control" type="text" ng-model="amount" placeholder="Amount" /><br />
+					Category : <input class="form-control" type="text" ng-model="category" placeholder="Category" /><br />
+					<button type="submit" class="btn btn-block btn-danger">Submit</button>
+				</form>
+				<div id="tab" ng-show="showstate">
+					<input type="text" class="form-control" ng-model="search" placeholder="Search" /><br />
+					<table class="table table-hover">
+						<thead><td>Description</td><td>Date</td><td>Amount</td><td>Category</td></thead>
+						<tbody>
+							<tr ng-repeat="task in tasks | filter:search"><td>{{task.description}}</td><td>{{task.date}}</td><td>{{task.amount}}</td><td>{{task.category}}</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
