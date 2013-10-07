@@ -20,9 +20,9 @@
 				<div id="tab" ng-show="showstate">
 					<input type="text" class="form-control" ng-model="search" placeholder="Search" /><br />
 					<table class="table table-hover">
-						<thead><td>Description</td><td>Date</td><td>Amount</td><td>Category</td></thead>
+						<thead><td ng-click="predicate = 'description'; reverse=false">Description</td><td ng-click="predicate = 'date'; reverse=!reverse">Date</td><td predicate = 'amount'; reverse=!reverse>Amount</td><td predicate = 'category'; reverse=!reverse>Category</td></thead>
 						<tbody>
-							<tr ng-repeat="task in tasks | filter:search"><td>{{task.description}}</td><td>{{task.date}}</td><td>{{task.amount}}</td><td>{{task.category}}</td></tr>
+							<tr ng-repeat="task in perst_tasks | filter:search | orderBy:predicate:reverse"><td>{{task.description}}</td><td>{{task.date}}</td><td>{{task.amount}}</td><td>{{task.category}}</td></tr>
 						</tbody>
 					</table>
 				</div>
