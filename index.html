@@ -1,9 +1,15 @@
-<html ng-app>
+<html ng-app="save_easy">
 <head>
 	<title>Save Easy</title>
 	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="datepicker.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript" src="angular_strap.js"></script>
+	<script type="text/javascript" src="datepicker.js"></script>
 	<script type="text/javascript" src="app.js"></script>
+	
 </head>
 <body>
 	<div style="padding-left:10px;" ng-controller="FormCtrl">
@@ -12,7 +18,7 @@
 				<h3>Save Easy</h3>
 				<form role="form" ng-submit="submit()">
 					Description: <input class="form-control" type="text" required ng-model="description" placeholder="Description" /><br />
-					Date : <input class="form-control" type="text" ng-model="date" placeholder="Date" /><br />
+					Date : <input class="form-control" type="text" ng-model="date" data-date-format="dd/mm/yyyy" bs-datepicker placeholder="Date" /><br />
 					Amount : <input class="form-control" type="text" ng-model="amount" placeholder="Amount" /><br />
 					Category : <input class="form-control" type="text" ng-model="category" placeholder="Category" /><br />
 					<button type="submit" class="btn btn-block btn-danger">Submit</button>

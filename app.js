@@ -1,5 +1,8 @@
-function FormCtrl($scope)
+var app = angular.module('save_easy', ['$strap.directives']);
+
+app.controller('FormCtrl', function ($scope) 
 {
+
 	var storage_id = "save_easy";
 	$scope.tasks = [];
 	$scope.perst_tasks = JSON.parse(localStorage.getItem(storage_id));
@@ -52,4 +55,4 @@ function FormCtrl($scope)
 	}
 	
 	console.log($scope.tasks);
-}
+});
