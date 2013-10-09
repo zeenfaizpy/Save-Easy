@@ -3,6 +3,7 @@
 	<title>Save Easy</title>
 	<link rel="stylesheet" type="text/css" href="bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="datepicker.css">
+	<link rel="stylesheet" type="text/css" href="font-awesome.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="angular.js"></script>
@@ -28,9 +29,9 @@
 				<div id="tab" ng-show="showstate">
 					<input type="text" class="form-control" ng-model="search" placeholder="Search" /><br />
 					<table class="table table-hover">
-						<thead><td ng-click="predicate = 'description'; reverse=!reverse">Description</td><td ng-click="predicate = 'date'; reverse=!reverse">Date</td><td ng-click="predicate = 'amount'; reverse=!reverse">Amount</td><td ng-click="predicate = 'category'; reverse=!reverse">Category</td></thead>
+						<thead><td ng-click="predicate = 'description'; reverse=!reverse">Description</td><td ng-click="predicate = 'date'; reverse=!reverse">Date</td><td ng-click="predicate = 'amount'; reverse=!reverse">Amount</td><td ng-click="predicate = 'category'; reverse=!reverse">Category</td><td>Edit</td></thead>
 						<tbody>
-							<tr ng-repeat="task in tasks | filter:search | orderBy:predicate:reverse"><td>{{task.description}}</td><td>{{task.date | date:'mediumDate'}}</td><td>{{task.amount}}</td><td>{{task.category}}</td></tr>
+							<tr ng-repeat="task in tasks | filter:search | orderBy:predicate:reverse"><td>{{task.description}}</td><td>{{task.date | date:'mediumDate'}}</td><td>{{task.amount}}</td><td>{{task.category}}</td><td><i ng-click="" class="icon-edit-sign"></i></td></tr>
 						</tbody>
 					</table>
 					<button type="button" class="btn btn-primary" ng-click="clear_data()">Clear All Data</button>
